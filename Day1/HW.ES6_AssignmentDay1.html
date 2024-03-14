@@ -1,0 +1,99 @@
+<html>
+	<head>
+			<style>
+				div
+				{
+					  border: 1px solid green;
+					  padding : 10px;
+					  width :  400px;
+					  border-radius :  5px;
+					  border-top-width :   10px;
+					  background-color :  lightyellow;
+					  margin: 10px;
+				}
+			</style>
+	
+	</head>
+	<body>
+		<h3>Advanced JavaScript  -- ES6/ES7</h3>
+		<hr/> 
+ 	   	   
+		<input type="button"  value="Get  Data"  onclick="buttonClick()"   />
+		 
+		 <br/><br/>
+		 
+         <div  id="div0">  </div>
+		 <div  id="div1">  </div>		 
+		 <div  id="div2">  </div> 
+         <div  id="div3">  </div>
+         <div  id="div4">  </div>
+	 
+  
+		<script> 			
+            let  divObj0 = document.getElementById("div0");
+			let  divObj1 = document.getElementById("div1");
+			let  divObj2 = document.getElementById("div2");
+            let  divObj3 = document.getElementById("div3");
+            let  divObj4 = document.getElementById("div4");
+			
+			function   map_Demo(arr)
+			{			
+				mapped_arr = arr.map(elm => elm + 10)
+                divObj1.innerHTML  +=  mapped_arr + "<br/>";
+			}
+			
+			function   filter_Demo(arr)
+			{
+                filtered_arr = arr.filter(elm => elm % 2  !=  0);			
+                divObj2.innerHTML  +=  filtered_arr + "<br/>";
+			}
+
+            function   find_Demo(arr, target)
+			{
+                foundOrNot = arr.find(elm => elm === target);
+                if(foundOrNot != undefined)
+                {
+                    divObj3.innerHTML  +=  `Element ${target} is found in the array` + "<br/>";
+                }		
+                else
+                {
+                    divObj3.innerHTML  +=  `Couldn't find the element ${target} in the array` + "<br/>";
+                }
+			 	
+			}
+				
+            function   findById_Demo(arr, target)
+			{
+                foundId = arr.findIndex(elm => elm === target);
+                if(foundOrNot != -1)
+                {
+                    let out = `Element ${target} found at index ${foundId}`;
+                    divObj4.innerHTML  +=  out + "<br/>";
+                }		
+                else
+                {
+                    divObj4.innerHTML  +=  `Couldn't find the element ${target} in the array` + "<br/>";
+                }		
+			}
+
+		   	function    buttonClick( )
+			{  			
+					divObj1.innerHTML  = "<u>Working with Map()</u> <br/>";
+					divObj2.innerHTML  = "<u>Working with Filter()</u> <br/>"; 
+                    divObj3.innerHTML  = "<u>Working with Find()</u> <br/>";
+                    divObj4.innerHTML  = "<u>Working with FindIndex()</u> <br/>";  
+					
+					const myarr = [15, 16, 17, 18, 19, 20];
+
+                    firstprompt = `The input array is [${myarr}]`;
+                    divObj0.innerHTML = "<u>"+ firstprompt + "</u> <br/>"
+                    map_Demo(myarr);
+                    filter_Demo(myarr);
+                    find_Demo(myarr, 17);
+                    find_Demo(myarr, 21);
+                    findById_Demo(myarr, 19);
+                    findById_Demo(myarr, 29);
+		    } 
+		</script>	 		 
+	</body>
+</html>
